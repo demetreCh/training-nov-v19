@@ -1,0 +1,7 @@
+<h1>Liste des posts</h1>
+<router-outlet></router-outlet>
+<router-outlet name="author"></router-outlet>
+
+<div *ngFor="let post of postsList">
+    hello {{post.title}} <button type="button" [routerLink]="[post.id]">Allez aux détails</button>
+</div>

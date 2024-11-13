@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://l68d04wm-3000.euw.devtunnels.ms/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {"^/api": ""}
+    }
+  }
