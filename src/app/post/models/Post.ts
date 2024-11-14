@@ -3,4 +3,5 @@ export interface Post {
     type: string;
     title: string;
     content: string;
+    author: number;
 }

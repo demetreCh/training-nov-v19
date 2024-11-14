@@ -1,4 +1,3 @@
-<h1>Liste des posts</h1>
 
 <div class="details">
   <div>
@@ -9,9 +8,10 @@
   </div>
 </div>
 
+<h1>Liste des posts</h1>
 @for (post of postsList | async; track post.id; let idx = $index) {
   <div>
-    {{post.title}} <button type="button" routerLink="1">Allez aux détails</button> 
+    {{post.title}} <button type="button" [routerLink]="[idx]">Allez aux détails</button> 
     <button type="button" (click)="selectPost(post)">Sélectionner le détail</button>
   </div>
 }

@@ -8,13 +8,13 @@ import { MyLibComponent } from 'my-lib';
 import { routes } from './app/main-routes';
 import { AppComponent } from './app/app.component';
 import { importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 bootstrapApplication(AppComponent, {
     providers: [
 
         provideHttpClient(),
-        provideRouter(routes)
+        provideRouter(routes, withComponentInputBinding())
     ]
 })
   .catch(err => console.error(err));

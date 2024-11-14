@@ -9,11 +9,9 @@ import { Post } from '../models/Post';
 })
 export class PostDetailComponent {
 
-  post = input.required<Post>();
-
+  @Input() post?: Post;
+  
   constructor(){
-
-
   }
 
 

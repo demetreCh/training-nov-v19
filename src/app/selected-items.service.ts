@@ -1,4 +1,4 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Post } from './post/models/Post';
 
 @Injectable({
@@ -6,12 +6,15 @@ import { Post } from './post/models/Post';
 })
 export class SelectedItemsService {
 
-  private postsSelected: WritableSignal<Set<Post>> = signal(new Set());
+  private _postsSelected: WritableSignal<Set<Post>> = signal(new Set());
+  
+  get postsSelected(): Signal<Set<Post>> {
+    return this._postsSelected.asReadonly();
+  }
 
   constructor() { }
 
-  public addPost(post: Post){
-    this.postsSelected.update(s=> s.add(post) )
-    console.log(this.postsSelected());
+  public addPost(post: Post) {
+    this._postsSelected.update(s => new Set([...s]).add(post));
   }
 }

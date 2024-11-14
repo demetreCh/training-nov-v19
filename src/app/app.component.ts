@@ -19,9 +19,12 @@ export class AppComponent {
   maValeur = "val par défaut";
   monAdresse: Address;
   nbPosts: Signal<number> = signal(0);
-  
+
   constructor(private readonly selectedItemsService: SelectedItemsService) {
-    this.nbPosts = computed(() => this.selectedItemsService.postsSelected().size);
+    this.nbPosts = computed(() => {
+      console.log(this.selectedItemsService.postsSelected());
+      return this.selectedItemsService.postsSelected().size;
+    });
     this.monAdresse = {
       number: '23',
       street: 'Baker street',

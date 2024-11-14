@@ -1,5 +1,7 @@
 .details {
-    background-color: aqua;
+    background-color: lightblue;
     display: flex;
     flex-direction: row;
+    width: 80%;
+    justify-content: space-around;
 }

@@ -4,6 +4,7 @@ import { AuthorDetailComponent } from '../author-detail/author-detail.component'
 import { PostDetailComponent } from '../post-detail/post-detail.component';
 import { PostsComponent } from '../posts/posts.component';
 import { PostsService } from '../../posts.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 
 export default [
