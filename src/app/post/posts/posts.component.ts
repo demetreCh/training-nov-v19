@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { PostsService } from '../../posts.service';
 import { Subscription } from 'rxjs';
 import { Post } from '../models/Post';
@@ -10,23 +10,8 @@ import { Post } from '../models/Post';
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.css'
 })
-export class PostsComponent implements OnInit, OnDestroy {
+export class PostsComponent {
 
-  postsList: Array<Post>;
-  subscriptions: Array<Subscription>
+  postsList = inject(PostsService).getPosts();
 
-  constructor(private readonly postsService: PostsService) {
-    this.postsList = [];
-    this.subscriptions = [];
-  }
-
-  ngOnInit(): void {
-    this.subscriptions.push(
-      this.postsService.getPosts().subscribe(posts => { this.postsList = posts; console.log(this.postsList); }));
-
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(s => s.unsubscribe());
-  }
 }

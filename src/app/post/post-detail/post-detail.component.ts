@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { PostsService } from '../../posts.service';
 import { Post } from '../models/Post';
 
@@ -11,7 +11,7 @@ import { Post } from '../models/Post';
 })
 export class PostDetailComponent {
 
-  @Input() post?: Post;
+  post = input<Post>();
 
   constructor(){
 

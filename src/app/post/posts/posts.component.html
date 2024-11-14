@@ -1,7 +1,14 @@
 <h1>Liste des posts</h1>
-<router-outlet></router-outlet>
-<router-outlet name="author"></router-outlet>
 
-<div *ngFor="let post of postsList">
-    hello {{post.title}} <button type="button" [routerLink]="[post.id]">Allez aux détails</button>
+<div class="details">
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <div>
+        <router-outlet name="author"></router-outlet>
+    </div>
+</div>
+
+<div *ngFor="let post of postsList | async">
+    {{post.title}} <button type="button" routerLink="1">Allez aux détails</button>
 </div>
