@@ -1,7 +1,15 @@
 <h1 i18n>Welcome</h1>
 
+<lib-resettable-input [(ngModel)]="maValeur"></lib-resettable-input>
+
+
+<app-address-input [(ngModel)]="monAdresse"></app-address-input>
+<p>
+    valeur : {{maValeur}}
+</p>
 <li>
     <ul><button type="button" routerLink="/dashboard">Dashboard</button></ul>
     <ul><button type="button" routerLink="/posts">Posts</button></ul>
+    <span>Posts ({{nbPosts()}})</span>
 </li>
 <router-outlet></router-outlet>

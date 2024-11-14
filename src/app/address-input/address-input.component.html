@@ -1,0 +1,22 @@
+<div [formGroup]="addressGroup">
+    <div>
+        <label for="number">Numéro:</label>
+        <input type="string" id="number" formControlName="number">
+    </div>
+    <div>
+        <label for="street">Rue:</label>
+        <input type="string" id="street" formControlName="street">
+    </div>
+    <div>
+        <label for="codePostal">CP:</label>
+        <input type="string" id="codePostal" formControlName="postalCode">
+    </div>
+    <div>
+        <label for="ville">Ville: </label>
+        <input type="string" id="ville" formControlName="city">
+    </div>
+    <div>
+        <label for="pays">Pays: </label>
+        <input type="string" id="pays" formControlName="country">
+    </div>
+</div>

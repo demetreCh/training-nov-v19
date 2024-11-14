@@ -6,7 +6,7 @@ import { PostsComponent } from '../posts/posts.component';
 import { PostsService } from '../../posts.service';
 
 
-const routes: Routes = [
+export default [
   {
     path: '', component: PostsComponent, children: [
       {
@@ -29,9 +29,3 @@ const routes: Routes = [
     ]
   }
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
-})
-export class PostRoutingModule { }

@@ -1,14 +1,17 @@
 <h1>Liste des posts</h1>
 
 <div class="details">
-    <div>
-        <router-outlet></router-outlet>
-    </div>
-    <div>
-        <router-outlet name="author"></router-outlet>
-    </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <router-outlet name="author"></router-outlet>
+  </div>
 </div>
 
-<div *ngFor="let post of postsList | async">
-    {{post.title}} <button type="button" routerLink="1">Allez aux détails</button>
-</div>
+@for (post of postsList | async; track post.id; let idx = $index) {
+  <div>
+    {{post.title}} <button type="button" routerLink="1">Allez aux détails</button> 
+    <button type="button" (click)="selectPost(post)">Sélectionner le détail</button>
+  </div>
+}
