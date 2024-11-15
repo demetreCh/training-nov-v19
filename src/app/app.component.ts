@@ -7,6 +7,7 @@ import { Address } from './address.interface';
 import { SelectedItemsService } from './selected-items.service';
 import { Post } from './post/models/Post';
 import { SignalNode } from '@angular/core/primitives/signals';
+import { LoggerLevel, LoggerService } from './logger.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,13 @@ export class AppComponent {
   monAdresse: Address;
   nbPosts: Signal<number> = signal(0);
 
+  loggerService: LoggerService;
+
   constructor(private readonly selectedItemsService: SelectedItemsService) {
+    this.loggerService = inject(LoggerService);
+    this.loggerService.log(LoggerLevel.DEBUG, "Debug from AppComponent !!");
+    this.loggerService.log(LoggerLevel.INFO, "Info from AppComponent !!");
+    this.loggerService.log(LoggerLevel.ERROR, "Error from AppComponent !!");
     this.nbPosts = computed(() => {
       console.log(this.selectedItemsService.postsSelected());
       return this.selectedItemsService.postsSelected().size;

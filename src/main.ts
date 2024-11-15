@@ -9,12 +9,14 @@ import { routes } from './app/main-routes';
 import { AppComponent } from './app/app.component';
 import { importProvidersFrom } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { LOGGER_SERVICE } from './app/ilogger';
+import { LoggerLevel, LoggerService, provideLogger } from './app/logger.service';
 
 bootstrapApplication(AppComponent, {
     providers: [
-
         provideHttpClient(),
-        provideRouter(routes, withComponentInputBinding())
+        provideRouter(routes, withComponentInputBinding()),
+        provideLogger(LoggerLevel.ERROR)
     ]
 })
-  .catch(err => console.error(err));
+    .catch(err => console.error(err));
